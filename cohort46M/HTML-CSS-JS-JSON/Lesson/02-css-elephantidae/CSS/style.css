@@ -1,0 +1,51 @@
+/*
+Comment
+*/
+body {
+    background-color: aqua;
+}
+
+
+h1 {
+    color: green;
+    font-size: 48px;
+    color: blue;
+    font-family: "Times New Roman", Times, serif;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+p {
+    font-family: "Mansalva", sans-serif;
+    font-size: 24px;
+}
+
+#asian {
+    border-color: darkred;
+}
+
+#african {
+    border-color: chartreuse;
+}
+
+img {
+    width: 480px;
+    height: 360px;
+    border: 3px solid black;
+    border-color: blue;
+    border-radius: 50%;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+
+}
+
+#probo {
+    color: red;
+}

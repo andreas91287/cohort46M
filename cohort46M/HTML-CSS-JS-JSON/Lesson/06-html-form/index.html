@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <form name="register" action="" method="get">
+        <fieldset>
+            <legend>Personal Data</legend>
+            <p>
+                <label for="firstname">Firstname: </label>
+                <input id="firstname" name="firstname" type="text" placeholder="John" autofocus>
+            </p>
+            <p>
+                <label for="lastname">Lastname: </label>
+                <input id="lastname" name="lastname" type="text" placeholder="Smith">
+            </p>
+            <p>
+                <label>Email: 
+                    <!-- required - erforderlich -->
+                    <input name="email" type="email" placeholder="johnsmith@gmail.com" required>
+                </label>
+            </p>
+            <p>
+                <label>Password: 
+                    <input name="password" type="password">
+                </label>
+            </p>
+            <p>
+                Gender: 
+                <label>
+                    <input type="radio" name="gender" value="male">Male
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="female">Female
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="other">Other...
+                </label>
+            </p>
+            <p>
+                Hobby:
+                <label>
+                    <input type="checkbox" name="vodka">Vodka
+                </label>
+                <label>
+                    <input type="checkbox" name="cannabis">Cannabis
+                </label>
+                <label>
+                    <input type="checkbox" name="sex">Sex
+                </label>
+            </p>
+            <p>
+                <label>Language:
+                    <select name="lang">
+                        <option value="en">English</option>
+                        <option value="de">German</option>
+                        <option value="ua">Ukrainian</option>
+                        <option value="ru">Russian</option>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <label>Birth Date
+                    <input type="date" name="birthDate">
+                </label>
+            </p>
+            <p>
+                <label>Comment:
+                    <textarea name="comment" cols="50" rows="10"></textarea>
+                </label>
+            </p>
+        </fieldset>
+        <button type="submit">Send</button>
+        <button type="reset">Clear</button>
+        <button type="button" id="buttonBack">Back</button>
+        <button type="button" id="buttonForward">Forward</button>
+    </form>
+</body>
+
+</html>

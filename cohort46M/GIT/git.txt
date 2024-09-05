@@ -1,0 +1,47 @@
+ - настройка Git на компьютере:
+        - `git config --global -l` посмотреть текущие настройки
+        - `git config --global user.name "Ivan Ivanov"` настройка имени
+        - `git config --global user.email "my_email@example.org"` настройка email
+
+- выгрузить публичный ключ на GitHub
+        - просмотр публичного ключа (если ошибка, то надо сгенерировать)
+            - `cat ~/.ssh/id_ed25519.pub`
+            - `cat ~/.ssh/id_rsa.pub`
+        - `ssh-keygen -t ed25519 -C 'email@example.org'` сгенирировать пару ключей (ВЫПОЛНИТЬ ТОЛЬКО В НАЧАЛЕ КАРЬЕРЫ)
+        - скопировать публичный ключ на GitHub
+        - `ssh -T git@github.com` проверить, что ключ выгружен на GitHub
+
+// id_ed25529.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMGJF5Nuc3c/uH9AkY/i7tH7daI3ELcvBykCQL1zLN86 andreas_lb@me.com
+
+// Initializationgit 
+git init
+git git.md
+git add .
+
+## Легенда (маркеры) `git status -s`
+    
+    - `??` Untracked
+    - `U` Untracked
+    - `M` Modified
+    - `D` Deleted
+    - `R` Renamed
+    - `A` Added
+
+5. **Выгрузка ветки на GitHub**
+    - `git push -u origin название_ветки` (`main`, `master` и т.д.)
+    - `git push -u origin main` (пример)
+    - `git push` (если ветку уже выгружал)
+
+## Стандартная последовательность команд
+
+```bash
+git add .
+git commit -m 'update'
+git push
+```
+
+## Просмотр текущей привязки
+
+```bash
+git remote -v

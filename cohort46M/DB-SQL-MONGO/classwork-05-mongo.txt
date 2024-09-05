@@ -1,0 +1,84 @@
+show databases
+show dbs
+use cohort46M
+show collections
+db.pets.insertOne({name: 'Vaska', type: 'Cat', age: 5})
+
+// SELECT * FROM
+db.pets.find()
+db.pets.insertOne({name: 'Boris', type: 'Cat', age: 3, breed: 'Siam'})
+// SELECT * FROM pets WHERE name = 'Vaska';
+db.pets.find({name: 'Vaska'})
+db.pets.deleteOne({name: 'Vaska'})
+db.pets.insertMany([
+    {name: 'Vaska', type: 'Cat', age: 5},
+    {name: 'Tom', type: 'Cat', age: 84},
+    {name: 'Jerry', type: 'Mouse', age: 84},
+    {name: 'Ace', type: 'Dog', age: 5},
+    {name: 'Prince', type: 'Dog', age: 3, breed:'Boxer'}
+])
+
+db.pets.deleteOne({type: 'Cat'})
+db.pets.deleteMany({type: 'Cat'})
+
+db.pets.insertMany([
+    {name: 'Vaska', type: 'Cat', age: 5},
+    {name: 'Tom', type: 'Cat', age: 84},
+    {name: 'Jerry', type: 'Mouse', age: 84},
+    {name: 'Boris', type: 'Cat', age: 3, breed: 'Siam'}
+])
+
+db.pets.deleteOne({_id: ObjectId('66d586ab2b5e6c14ab5e73a5')})
+db.pets.insertOne({_id: {planet: 'Mars', number: 987654321, name: 'Alien', type: 'Cat', age: 5}})
+db.pets.deleteOne({_id: {planet: 'Mars', number: 987654321}}) ???
+db.pets.deleteOne({_id: {planet: 'Mars', number: 987654321, name: 'Alien', type: 'Cat', age: 5}})
+
+db.pets.find({type: 'Cat'})
+db.pets.find({breed: 'Siam'})
+
+// SELECT name, age FROM pets WHERE type = 'Cat';
+db.pets.find({type: 'Cat'}, {name: 1, age: 1})
+db.pets.find({type: 'Cat'}, {age: 0})
+db.pets.find({type: 'Cat'}, {age: 0, type: 0})
+db.pets.find({type: 'Cat'}, {age: 1, type: 0}) // Error
+db.pets.find({type: 'Cat'}, {age: 1, name: 1, _id: 0})
+
+// SELECT * FROM pets WHERE type = 'Cat' AND age = 3;
+db.pets.find({type: 'Cat', age: 3})
+
+// SELECT * FROM pets WHERE type = 'Cat' AND age >= 5;
+db.pets.find({type: 'Cat', age: {$gte: 5}})
+db.pets.find({type: {$ne: 'Mouse'}})
+
+// SELECT * FROM pets WHERE type IN('Cat', 'Mouse');
+db.pets.find({type: {$in: ['Cat', 'Mouse']}})
+db.pets.find({breed: {$exists: 1}}, {_id: 0})
+
+// SELECT * FROM pets WHERE type ='Mouse' OR age < 5;
+db.pets.find({$or: [{type: 'Mouse'}, {age: {$lt: 5}}]})
+db.pets.find({$and: [{type: 'Cat'}, {age: {$gte: 5}}]})
+db.pets.updateOne({name: 'Jerry'}, {$set: {IQ: 10}})
+db.pets.updateOne({IQ: {$exists: 0}}, {$set: {IQ: 10}})
+db.pets.updateOne({name: 'Jerry'}, {$set: {IQ: 110}})
+db.pets.updateMany({IQ: {$exists: 0}}, {$set: {IQ: 10}})
+db.pets.updateMany({}, {$inc: {IQ: 10}})
+db.pets.updateMany({}, {$set: {IQ: -5}})
+db.pets.updateMany({}, {$unset: {IQ: ''}})
+db.pets.find().size()
+db.pets.find({type: 'Cat'}).size()
+db.pets.find().limit(2)
+db.pets.find({}).limit(2)
+db.pets.find().skip(1).limit(2)
+db.pets.find().sort({age: 1})
+db.pets.find().sort({age: -1})
+db.pets.find().sort({age: 1, name: 1})
+db.pets.find().sort({age: 1, name: -1})
+db.pets.find({type: 'Bat'})
+db.pets.findOne({type: 'Bat'})
+
+
+
+// $gte - greater than or equals
+// $lt - less than
+// $ne - not equals
+// $inc - incremets

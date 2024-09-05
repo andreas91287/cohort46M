@@ -1,0 +1,48 @@
+form {
+    width: 50%;
+}
+
+.input-box {
+    width: 50%;
+}
+
+.input-box input {
+    outline: 0;
+}
+
+#form-save {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+}
+
+#form-save+label {
+    display: inline-block;
+    width: 52px;
+    height: 26px;
+    border-radius: 26px;
+    background-color: #95a5a6;
+    position: relative;
+    transition: background 0.5s;
+}
+
+#form-save+label::after {
+    content: "";
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: left 0.5s;
+}
+
+#form-save:checked+label {
+    background-color: #27ae60;
+}
+
+#form-save:checked+label::after {
+    left: 28px;
+}

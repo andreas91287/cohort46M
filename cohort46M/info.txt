@@ -1,0 +1,39 @@
+
+p - paragraph
+h1 - h6 - headers
+div - division
+br - line brakes
+a - (anker) hyperlink
+
+ul - unordered list
+ol - ordered list
+li - list
+
+th - table header
+tr - table row
+td - table data
+
+margin - Außenabstand
+border - Grenze
+padding - Innenabstand
+
+
+
+header
+main
+footer
+
+selection
+
+required - 
+
+extension = Live Server
+
+HTML - Hyper Text Marked Language
+CSS - Cascading Style Sheets
+
+JSON - JavaScript Object Notation
+DBMS - DataBase Management System
+SQL - Structed Query Language
+BSON - Binary Javascript Object Notation
+JSX - JavaScript Extended

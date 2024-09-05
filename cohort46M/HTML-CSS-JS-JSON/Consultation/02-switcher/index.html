@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation 2</title>
+</head>
+
+<body>
+    <form action="./main.html" method="get">
+        <p>
+            <label for="nickname">Nickname: </label>
+            <input type="text" name="nickname" id="nickname" placeholder="nickname" value="Jack">
+        </p>
+        <p>
+            <label for="gold">Goldmenge: </label>
+            <input type="number" name="gold" id="gold" value="100000">
+        </p>
+        <p>
+            <label for="teeth">Teeth Color: </label>
+            <input type="color" name="teeth" id="teeth">
+        </p>
+        <p>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" value="jack@me.com" required>
+        </p>
+        <fieldset>
+            <legend>Kontraband</legend>
+            <p>
+                <input type="checkbox" name="cats" id="cats">
+                <label for="cats">Cats</label>
+            </p>
+            <p>
+                <input type="checkbox" name="crypto" id="crypto">
+                <label for="crypto">Mining Farm</label>
+            </p>
+            <p>
+                <input type="checkbox" name="herring" id="herring">
+                <label for="herring">Herring</label>
+            </p>
+        </fieldset>
+        <p>
+            <label for="legs">Number of Legs:</label>
+            <select name="number-of-legs" id="legs">
+                <option value="1">1</option>
+                <option selected value="2">2</option>
+                <option value="4">4</option>
+                <option value="8">8</option>
+            </select>
+        </p>
+        <button type="submit">Sumbit</button>
+    </form>
+</body>
+
+</html>

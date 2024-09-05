@@ -1,0 +1,40 @@
+// 1
+SELECT p.*
+	FROM products p
+	JOIN suppliers s
+	ON s.supplierID = p.supplierID
+	WHERE s.name = 'ABC Traders';
+
+// 2
+SELECT SUM(p.quantity * p.price) AS `Total cost`
+	FROM products p
+	JOIN suppliers s
+	ON s.supplierID = p.supplierID
+	WHERE s.name IN(’XYZ Company’, ’QQ Corp’);
+
+// 3
+SELECT s.supplierID AS 'Supplier',
+		CAST(SUM(p.price * p.quantity) / SUM(p.quantity) AS DECIMAL(7, 2)) AS `Average price`
+	FROM products p
+	JOIN suppliers s ON s.supplierID = p.supplierID
+	GROUP BY s.supplierID;
+
+// 4
+SELECT s.name AS `Supplier Name`,
+		s.phone AS `Supplier Phone`,
+		p.price AS `Minimal Product Price`	
+	FROM products p
+	JOIN suppliers s ON s.supplierID = p.supplierID
+    WHERE p.productCode = 'MRK'
+    ORDER BY p.price
+    LIMIT 1;
+
+// *5
+SELECT s.name AS `Supplier Name`,
+		s.phone AS `Supplier Phone`,
+		COUNT(DISTINCT(p.productCode))`Number Of Product Codes`
+	FROM products p
+	JOIN suppliers s ON s.supplierID = p.supplierID
+	GROUP BY s.supplierID
+	ORDER BY 3 DESC
+	LIMIT 1;

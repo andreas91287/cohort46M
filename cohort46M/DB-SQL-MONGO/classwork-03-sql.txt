@@ -1,0 +1,144 @@
+SELECT productCode FROM products;
+SELECT DISTINCT productCode FROM products;  // DISTINCT - removes dublicates (distinct - trennen)
+SELECT COUNT(*) FROM products;
+SELECT COUNT(DISTINCT productCode) FROM products;
+
+SELECT MAX(price) AS `Max price`,
+        MIN(price) AS `Min price`,
+        AVG(price) AS `Average price`,
+        SUM(quantity) AS `Total quantity`
+    FROM products;
+ 
+SELECT MAX(price) AS `Max price`,
+        MIN(price) AS `Min price`,
+        CAST(AVG(price) AS DECIMAL(7,2)) AS `Average price`,
+        SUM(quantity) AS `Total quantity`
+    FROM products;
+ 
+SELECT MAX(price) AS `Max price`,
+        MIN(price) AS `Min price`,
+        CAST(AVG(price) AS DECIMAL(7,2)) AS `Average price`,
+        SUM(quantity * price) AS `Total cost`  
+    FROM products;
+
+INSERT INTO products VALUES
+        (NULL, 'PEN', 'Caran d\'Ache', 1, 500);
+
+SELECT MAX(price) AS `Max price`,
+        MIN(price) AS `Min price`,
+        CAST(SUM(price * quantity) / SUM(quantity) AS DECIMAL(7,2)) AS `Average price`,
+        SUM(quantity * price) AS `Total cost`
+    FROM products;
+
+SELECT productCode AS Code,
+        MAX(price) AS `Max price`,
+        MIN(price) AS `Min price`,
+        CAST(SUM(price * quantity) / SUM(quantity) AS DECIMAL(7,2)) AS `Average price`,
+        SUM(quantity * price) AS `Total cost`
+    FROM products
+    GROUP BY productCode;
+
+SELECT productCode FROM products GROUP BY productCode;
+
+SELECT productCode AS Code,
+        MAX(price) AS `Max price`,
+        MIN(price) AS `Min price`,
+        CAST(SUM(price * quantity) / SUM(quantity) AS DECIMAL(7,2)) AS `Average price`,
+        SUM(quantity * price) AS `Total cost`
+    FROM products
+    WHERE price < 10
+    GROUP BY productCode;
+
+SELECT productCode AS Code,
+        MAX(price) AS `Max price`,
+        MIN(price) AS `Min price`,
+        CAST(SUM(price * quantity) / SUM(quantity) AS DECIMAL(7,2)) AS `Average price`,
+        SUM(quantity * price) AS `Total cost`
+    FROM products
+    WHERE price < 10
+    GROUP BY productCode
+    WITH ROLLUP;
+
+SELECT productCode AS Code,
+        MAX(price) AS `Max price`,
+        MIN(price) AS `Min price`,
+        CAST(SUM(price * quantity) / SUM(quantity) AS DECIMAL(7,2)) AS `Average price`,
+        SUM(quantity * price) AS `Total cost`
+    FROM products
+    WHERE price < 10
+    GROUP BY productCode
+    HAVING `Total cost` > 10000;
+    
+SELECT CAST(SUM(price * quantity) / SUM(quantity) AS DECIMAL(7,2)) AS `Average price`
+    FROM products
+    WHERE price < 10;
+
+SELECT * FROM products WHERE productID != 1008 AND price > 1.22;
+
+SELECT *
+    FROM products
+    WHERE productID != 1008 AND price > (SELECT CAST(SUM(price * quantity) / SUM(quantity) AS DECIMAL(7,2)) AS `Average price`
+        
+        FROM products 
+        WHERE price < 10);
+
+CREATE TABLE suppliers (
+         supplierID  INT UNSIGNED  NOT NULL AUTO_INCREMENT,
+         name        VARCHAR(30)   NOT NULL DEFAULT '',
+         phone       CHAR(8)       NOT NULL DEFAULT '',
+         PRIMARY KEY (supplierID)
+       );
+
+ALTER TABLE products ADD COLUMN supplierID INT UNSIGNED NOT NULL;
+
+INSERT INTO suppliers VALUE
+          (501, 'ABC Traders', '88881111'),
+          (502, 'XYZ Company', '88882222'),
+          (503, 'QQ Corp', '88883333');
+
+ALTER TABLE products
+    ADD FOREIGN KEY (supplierID) REFERENCES suppliers (supplierID);
+
+UPDATE products SET supplierID = 501 WHERE productCode = 'PEN';
+UPDATE products SET supplierID = 502 WHERE productCode = 'PEC';
+UPDATE products SET supplierID = 503 WHERE productCode = 'MRK';
+
+DESCRIBE products;
+
+SHOW CREATE TABLE products \G
+
+UPDATE products SET supplierID = 520 WHERE productID = 1008;
+UPDATE products SET supplierID = 502 WHERE productID = 1008;
+
+SELECT * FROM products, suppliers;
+
+SELECT *
+    FROM products, suppliers
+    WHERE products.supplierID = suppliers.supplierID;
+
+SELECT *
+    FROM products AS p, suppliers AS s
+    WHERE p.supplierID = s.supplierID;
+
+SELECT *
+    FROM products p, suppliers s
+    WHERE p.supplierID = s.supplierID;
+
+SELECT p.*, s.name, s.phone
+    FROM products p, suppliers s
+    WHERE p.supplierID = s.supplierID;
+
+SELECT p.*, s.name, s.phone
+    FROM products p, suppliers s
+    WHERE p.supplierID = s.supplierID AND p.price < 10;
+
+SELECT p.*, s.name, s.phone
+    FROM products p
+    JOIN suppliers s
+    ON p.supplierID = s.supplierID;
+
+SELECT p.*, s.name, s.phone 
+    FROM products p 
+    JOIN suppliers s 
+    ON p.supplierID = s.supplierID 
+    WHERE p.price < 10;

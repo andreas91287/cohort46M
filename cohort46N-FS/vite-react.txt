@@ -1,0 +1,8 @@
+// Vite Repository
+npm create vite@latest 02-react-weather -- --template react
+
+// 
+npm i
+
+// 
+npm run dev
