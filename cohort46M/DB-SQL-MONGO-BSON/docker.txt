@@ -1,0 +1,85 @@
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  pull        Download an image from a registry
+  images      List images
+  version     Show the Docker version information
+
+Management Commands:
+  container   Manage containers
+  image       Manage images
+  volume      Manage volumes
+
+Commands:
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  rename      Rename a container
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  start       Start one or more stopped containers
+  stop        Stop one or more running containers
+  update      Update configuration of one or more containers
+
+
+// Lesson 01
+
+docker -v
+docker --help
+docker images
+docker ps --help
+docker ps
+docker ps -a
+
+// Create Image
+docker pull ubuntu:24.04
+docker run ubuntu:24.04
+docker run --name bubuntu ubuntu:24.04
+docker rm bubuntu 3ccea7b01299
+
+docker run -it --name bubuntu ubuntu:24.04
+docker run --name mysqldb -e MYSQL_ROOT_PASSWORD=1234 -d mysql:8.4
+docker exec -it mysqldb mysql -u root -p
+
+
+// Lesson 02 - sql
+// Start/Stop Container 
+docker start mysqldb
+docker exec -it mysqldb mysql -u root -p
+
+docker stop mysqldb
+
+docker rm mysqldb
+docker rm -f mysqldb
+docker run --name mysqldb -e MYSQL_ROOT_PASSWORD=1234 -d mysql:8.4
+
+docker volume --help
+docker volume ls
+docker volume create mysql_volume
+docker run --name mysqldb -v mysql_volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -d mysql:8.4
+
+
+// Lesson 05 - mongodb
+docker start mongodb
+docker stop mongodb
+
+docker volume create mongo_volume
+docker run --name mongodb -v mongo_volume:/data/db -e MONGO_INITDB_ROOT_USERNAME=andreas -e MONGO_INITDB_ROOT_PASSWORD=1234 -d mongo
+docker exec -it mongodb mongosh -u andreas -p
+*
+docker exec -it mongodb mongosh -u=andreas -p=1234
+*
+
+
+// Lesson 06
+docker cp
+docker cp ./Downloads/students.json mongodb:/students.json
+docker cp ./Downloads/grades.json mongodb:/grades.json
+
+docker exec mongodb mongoimport --authenticationDatabase=admin -u=andreas -p=1234 -d cohort46M -c students --file ./students.json
+docker exec mongodb mongoimport --authenticationDatabase=admin -u=andreas -p=1234 -d cohort46M -c grades --file ./grades.json
+
+
+LA.87.OpenWeather
+LA.87.GitHub
+

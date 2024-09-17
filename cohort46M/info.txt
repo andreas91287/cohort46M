@@ -13,6 +13,8 @@ th - table header
 tr - table row
 td - table data
 
+selection
+
 margin - Außenabstand
 border - Grenze
 padding - Innenabstand
@@ -23,11 +25,12 @@ header
 main
 footer
 
-selection
 
 required - 
 
 extension = Live Server
+
+
 
 HTML - Hyper Text Marked Language
 CSS - Cascading Style Sheets
@@ -35,5 +38,8 @@ CSS - Cascading Style Sheets
 JSON - JavaScript Object Notation
 DBMS - DataBase Management System
 SQL - Structed Query Language
+// CAP - Consistency Aviability Partitionbility
+
 BSON - Binary Javascript Object Notation
 JSX - JavaScript Extended
+TS - TypeScript

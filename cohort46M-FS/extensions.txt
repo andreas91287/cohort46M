@@ -1,0 +1,15 @@
+// Google extension
+react developer tools
+
+// NPM
+
+// Vite (bundle) on react.dev
+// @vitejs/plugin-react
+npm create vite@latest my-vue-app -- --template vue
+
+*
+// StackBlitz
+*
+
+// VS Code extensions
+ES7+ React/Redux/React-Native snippets

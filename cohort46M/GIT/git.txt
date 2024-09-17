@@ -14,10 +14,13 @@
 // id_ed25529.pub
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMGJF5Nuc3c/uH9AkY/i7tH7daI3ELcvBykCQL1zLN86 andreas_lb@me.com
 
-// Initializationgit 
+// Initialization
 git init
 git git.md
-git add .
+
+git remote add origin git@github.com:andreas91287/cohort46M.git
+git reset
+git status
 
 ## Легенда (маркеры) `git status -s`
     

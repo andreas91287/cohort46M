@@ -1,0 +1,9 @@
+// States
+// commit - verüben 
+modified, staged, commited
+
+git --version
+git init
+git add.    // . - add all
+git ignore
+git commit -m "fisrt commit"

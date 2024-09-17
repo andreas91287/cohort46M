@@ -1,0 +1,38 @@
+// Vite Repository
+npm create vite@latest 02-react-weather -- --template react
+npm create vite@latest 03-react-weather -- --template react
+
+
+// 
+cd 
+npm install
+npm i
+npm run dev
+
+// HW 03
+npm create vite@latest 04-react-star-wars -- --template react
+npm i bootstrap
+
+// 04
+npm create vite@latest 04-react-lifecycle -- --template react
+npm create vite@latest 04-react-hw-sw-pictures -- --template react
+
+// 06
+npm create vite@latest 06-react-twitter -- --template react
+sudo npm install -g typescript
+
+// 07
+npm create vite@latest 07-ts-react-todo -- --template react-ts
+
+// 09
+npm create vite@latest twitter-typescript -- --template react-ts
+npm i react-router-dom
+
+// 10
+npm create vite@latest 10-react-hoc -- --template react
+
+
+
+// Lifexpert
+olga.lesnikov.1966@gmail.com
+LA66Lifexpert
